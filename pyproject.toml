@@ -1,14 +1,25 @@
 [tool.poetry]
 name = "not-on-pypi"
-version = "0.1.0"
-description = ""
-authors = ["Kyle King <KyleKing@users.noreply.github.com>"]
+
+version = "0.0.0a1"
+description = "Reserved package name"
+authors = [ "Kyle King <dev.act.kyle@gmail.com>",]
+maintainers = []
+repository = "https://github.com/KyleKing/not-on-pypi"
+documentation = "https://github.com/KyleKing/not-on-pypi"
+readme = "README.md"
+include = [ "LICENSE.md",]
+keywords = []
+classifiers = []
+packages = [{include = "./not_on_pypi"}]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/KyleKing/not-on-pypi/issues"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "*"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

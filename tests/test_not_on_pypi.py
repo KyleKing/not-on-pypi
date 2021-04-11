@@ -1,5 +1,9 @@
-from not_on_pypi import __version__
+"""Test `_not_on_pypi`."""
+
+import pytest
 
 
-def test_version():
-    assert __version__ == '0.1.0'
+def test_import():
+    """Raises a 'PackageNotFoundError' to prevent actual use of the package."""
+    with pytest.raises(RuntimeError):
+        import not_on_pypi  # noqa: F401
