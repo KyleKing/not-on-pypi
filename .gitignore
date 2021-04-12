@@ -155,7 +155,7 @@ dmypy.json
 # Other Python
 *.whl
 *.tar.gz
-setup.py
+# setup.py
 
 # Coverage (for Pytest)
 **/coverage*
