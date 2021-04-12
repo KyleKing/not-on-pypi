@@ -176,3 +176,7 @@ coverage.json
 
 # Built Outputs
 /releases/
+
+# FYI: Ignore __init__.py created with setup.py
+/*/__init__.py
+!/tests/__init__.py

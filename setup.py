@@ -7,8 +7,14 @@ from setuptools.command.install import install
 PACKAGE_NAME = 'common_app'
 """Modify the package name here which is to be seen on PyPi."""
 
+VERSION = '0.0.0a2'
+
 AUTHOR = 'Kyle King'
 AUTHOR_EMAIL = 'dev.act.kyle@gmail.com'
+
+package_init = Path(PACKAGE_NAME).resolve() / '__init__.py'
+package_init.parent.mkdir(exist_ok=True)
+package_init.write_text('"""Do nothing."""\n')
 
 # --------------------------------------------------------------------------------------
 
@@ -23,11 +29,12 @@ class RaiseErrorPreInstall(install):
     """Customized setuptools install command - prints a friendly greeting."""
 
     def run(self):
-        raise WrongPackageInstalledError("""
-This package was downloaded from the public pypi.org repository, but
-should have been downloaded from an internal repository.
+        raise WrongPackageInstalledError(f"""
+\n\n
+'{PACKAGE_NAME}' was downloaded from the public pypi.org repository, but is only available on an internal repository
 
-Please update the installer's configuration and download from the proper index-url
+Please update your installer's configuration and download from the proper index-url
+\n\n
 """)
 
 
@@ -35,7 +42,7 @@ Please update the installer's configuration and download from the proper index-u
 if __name__ == '__main__':
     setup(
         name=PACKAGE_NAME,
-        version='0.0.0a1',
+        version=VERSION,
         packages=[PACKAGE_NAME],
         description = 'Reserved package name',
         long_description = Path('README.md').read_text(),
