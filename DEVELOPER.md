@@ -3,12 +3,9 @@
 ## Publishing
 
 1. Install `poetry` (recommend installing with `pipx`)
-2. Set the package name in `pyproject.toml`
-3. Run `poetry install`
-4. Then publish:
-    1. `poetry build --format sdist`
-    2. `poetry publish`
-    3. (See notes below for testing with test.pypi.org first)
+2. Set the package name to publish in `pyproject.toml`
+3. Then publish with `rm -rf dist && poetry build --format sdist && poetry publish`
+    1. (See notes below for testing with test.pypi.org first)
 
 ## Testing
 
@@ -29,14 +26,6 @@ poetry run pip uninstall -y package_name
 poetry run pip install --index-url https://test.pypi.org/simple/ package_name
 # Note: if poetry isn't found, might need to use extra-index-url instead (if not also on )
 poetry run pip install --extra-index-url https://test.pypi.org/simple/ package_name
-```
-
-To publish to the real PyPi
-
-```sh
-poetry config pypi-token.pypi ...
-poetry build --format sdist
-poetry publish
 ```
 
 ## Links
