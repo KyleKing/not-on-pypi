@@ -4,10 +4,19 @@ from pathlib import Path
 from setuptools import setup
 from setuptools.command.install import install
 
-PACKAGE_NAME = 'common_app'
+# ✓ PACKAGE_NAME = 'common_app'
+# ✓ PACKAGE_NAME = 'cn_smtp_sink_server'
+# ✓ PACKAGE_NAME = 'common_bootstrap'
+# ✓ PACKAGE_NAME = 'common_dash'
+# ✓ PACKAGE_NAME = 'common_img'
+# ✓ PACKAGE_NAME = 'common_inst'
+# ✓ PACKAGE_NAME = 'common_notifier'
+# ✓ PACKAGE_NAME = 'common_prstub'
+# ✓ PACKAGE_NAME = 'common_tracker'
+PACKAGE_NAME = None
 """Modify the package name here which is to be seen on PyPi."""
 
-VERSION = '0.0.0a2'
+VERSION = '0.0.0a1'
 
 AUTHOR = 'Kyle King'
 AUTHOR_EMAIL = 'dev.act.kyle@gmail.com'

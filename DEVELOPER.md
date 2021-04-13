@@ -1,13 +1,12 @@
 # Developer Guide
 
-## Publishing
+## Instructions
 
 1. Modify `PACKAGE_NAME` in the `setup.py` file
 2. Run: `rm -rf dist && python setup.py sdist`
-3. Publish with `twine` (TBD)
-    1. (See notes below for testing with `test.pypi.org` first)
+3. Publish with `twine` (see notes below)
 
-## Testing
+## Publishing
 
 For testing, create an account on [TestPyPi](https://test.pypi.org)
 
@@ -27,7 +26,7 @@ poetry publish --repository testpypi
 poetry run pip uninstall -y package_name
 # Then test installing from test.pypi
 poetry run pip install --index-url https://test.pypi.org/simple/ package_name
-# Note: if poetry isn't found, might need to use extra-index-url instead (if not also on )
+# Note: if poetry isn't found (not on TestPyPi), might need to use extra-index-url instead
 poetry run pip install --extra-index-url https://test.pypi.org/simple/ package_name
 ```
  -->
@@ -41,17 +40,10 @@ twine upload dist/* -r testpypi
 pip install --extra-index-url https://test.pypi.org/simple/ --upgrade package_name
 ```
 
-Publish to the real PyPi
+Full snippet for publishing to the real PyPi
 
 ```sh
-twine upload dist/*
+rm -rf dist && python setup.py sdist
+twine upload dist/* --username KyleKing
 pip install package_name
 ```
-
-## Links
-
-- [PyPi-Parker](https://github.com/mattsb42/pypi-parker): Helper tooling for parking PyPI namespaces to combat typosquatting
-- [Using setup.py](https://stackoverflow.com/questions/20288711/post-install-script-with-python-setuptools)
-- [Undocumented Poetry Feature for build scripts](https://aotu.ai/en/blog/2021/01/19/publishing-a-proprietary-python-package-on-pypi-using-poetry/)
-- [Contribution notes from cz_legacy](https://github.com/KyleKing/cz_legacy/blob/dc01e162861607d59f450ae842ae785d3ea38794/CONTRIBUTING.md)
-- and [calcipy documentation](https://github.com/KyleKing/calcipy/tree/e2db03480f5967f17f57396c6eaced3f85ed9832/docs)
